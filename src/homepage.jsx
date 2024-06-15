@@ -14,7 +14,7 @@ const Homepage = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1500,
+        autoplaySpeed: 2500,
     };
 
     return (
@@ -34,37 +34,37 @@ const Homepage = () => {
 
             {/* Working Section */}
             <section>
-                <h2 className="text-2xl font-bold my-4  text-center">Work we do</h2>
-                <div className="flex gap-5 overflow-x-auto p-2">
-                    <div className="card w-72 border border-gray-300 rounded-lg shadow-md p-4">
+                <h2 className="text-2xl font-bold my-4 text-center">Work we do</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-5  p-2">
+                    <div className="card m-auto w-72 border border-gray-300 rounded-lg shadow-md p-4">
                         <div className="card-body">
                             <h5 className="card-title text-xl font-semibold">Education</h5>
                             <p className="card-text">Aman Day Care Center | Balwadi</p>
                         </div>
                     </div>
 
-                    <div className="card w-72 border border-gray-300 rounded-lg shadow-md p-4">
+                    <div className="card m-auto w-72 border border-gray-300 rounded-lg shadow-md p-4">
                         <div className="card-body">
                             <h5 className="card-title text-xl font-semibold">LIVELIHOOD</h5>
                             <p className="card-text">Black Gold Rope for Life | Skill Development</p>
                         </div>
                     </div>
 
-                    <div className="card w-72 border border-gray-300 rounded-lg shadow-md p-4">
+                    <div className="card m-auto w-72 border border-gray-300 rounded-lg shadow-md p-4">
                         <div className="card-body">
                             <h5 className="card-title text-xl font-semibold">WOMEN EMPOWERMENT</h5>
                             <p className="card-text">Entrepreneurship and Skill Development | Women's Empowerment Project</p>
                         </div>
                     </div>
 
-                    <div className="card w-72 border border-gray-300 rounded-lg shadow-md p-4">
+                    <div className="card m-auto w-72 border border-gray-300 rounded-lg shadow-md p-4">
                         <div className="card-body">
                             <h5 className="card-title text-xl font-semibold">HEALTHCARE</h5>
                             <p className="card-text">Dental Camp | General Medical Camp</p>
                         </div>
                     </div>
 
-                    <div className="card w-72 border border-gray-300 rounded-lg shadow-md p-4">
+                    <div className="card m-auto w-72 border border-gray-300 rounded-lg shadow-md p-4">
                         <div className="card-body">
                             <h5 className="card-title text-xl font-semibold">DISASTER RELIEF</h5>
                             <p className="card-text">Covid19 | Earthquake | Food relief program | Drought Relief</p>
@@ -76,18 +76,18 @@ const Homepage = () => {
             {/* Review Section */}
             <section>
                 <h2 className="text-2xl font-bold my-4  text-center">Success stories</h2>
-                <div className="flex gap-5 overflow-x-auto justify-evenly">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 overflow-x-auto justify-evenly">
                     {/* Review Card 1 */}
-                    <div className="card w-72 border border-gray-300 rounded-lg shadow-md p-4">
+                    <div className="card m-auto w-72 border border-gray-300 rounded-lg shadow-md p-4">
                         <div className="card-body">
                             <h5 className="card-title text-xl font-semibold">A Journey from Poverty to Prosperity</h5>
-                            <p className="card-text">"Before EAGL came to our village, I struggled to provide for my children. We often went days without enough food..."</p>
+                            <p className="card-text">"Before EAGL came to our village, I struggled to provide for my children. We often went days without enough food  Lorem ipsum dolor sit amet consectetur adipisicing elitn unorvonni iggt..."</p>
                             <a href="#" className="btn btn-primary mt-2 inline-block bg-blue-500 text-white py-2 px-4 rounded">Read More</a>
                         </div>
                     </div>
 
                     {/* Review Card 2 */}
-                    <div className="card w-72 border border-gray-300 rounded-lg shadow-md p-4">
+                    <div className="card m-auto w-72 border border-gray-300 rounded-lg shadow-md p-4">
                         <div className="card-body">
                             <h5 className="card-title text-xl font-semibold">Creating Entrepreneurs in Underserved Communities</h5>
                             <p className="card-text">"Joining the Goat NGO's initiative was a turning point in my life. With the seed funding and training they provided,...."</p>
@@ -95,7 +95,7 @@ const Homepage = () => {
                         </div>
                     </div>
 
-                    <div className="card w-72 border border-gray-300 rounded-lg shadow-md p-4">
+                    <div className="card m-auto w-72 border border-gray-300 rounded-lg shadow-md p-4">
                         <div className="card-body">
                             <h5 className="card-title text-xl font-semibold">Ensuring Food Security for Vulnerable Families</h5>
                             <p className="card-text">"The introduction of goats into our farm has significantly improved our food security. The milk from the goats is rich in nutrients..."</p>
@@ -103,7 +103,7 @@ const Homepage = () => {
                         </div>
                     </div>
 
-                    <div className="card w-72 border border-gray-300 rounded-lg shadow-md p-4">
+                    <div className="card m-auto w-72 border border-gray-300 rounded-lg shadow-md p-4">
                         <div className="card-body">
                             <h5 className="card-title text-xl font-semibold">Women’s Empowerment through Livestock Ownership</h5>
                             <p className="card-text">"Receiving goats from the NGO has empowered me in ways I never imagined. As a woman in a patriarchal society, I had little economic power..."</p>
@@ -124,10 +124,10 @@ const Homepage = () => {
             <section className="p-5 mt-5 border border-gray-300 rounded-lg shadow-md">
                 <h2 className="text-2xl font-bold  text-center">Join Us in Making a Difference</h2>
                 <p>
-                    Your contribution can change lives. With your support, we can continue to empower more families, boost local economies, and ensure food security in the most vulnerable regions. Together, we can build a brighter, more sustainable future for all.
+                    Your contribution can change lives. With your support, we can continue to empower more families, boost local economies, and ensure food security in the most vulnerable regions. Together, we can build a brighter, more sustainable future for all, and be a part of this incredible journey of transformation and hope.
                 </p>
                 <p>
-                    <a href="#" className="btn btn-primary mt-2 inline-block bg-blue-500 text-white py-2 px-4 rounded">Donate Now</a> and be a part of this incredible journey of transformation and hope.
+                    <a href="#" className="btn btn-primary mt-2 inline-block mt-5 bg-blue-500 text-white py-2 px-4 rounded">Donate Now</a>
                 </p>
             </section>
 

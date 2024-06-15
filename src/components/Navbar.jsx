@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Modal from './Modal';
+import Form from './Form';
 
 const Navbar = () => {
   const [loginOpen, setLoginOpen] = useState(false);
   const [signupOpen, setSignupOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState({ title: '', content: '' });
 
   const toggleLogin = () => {
     setLoginOpen(!loginOpen);
@@ -17,6 +21,11 @@ const Navbar = () => {
     if (loginOpen) {
       setLoginOpen(false);
     }
+  };
+
+  const openModal = (title, content) => {
+    setModalContent({ title, content });
+    setModalOpen(true);
   };
 
   return (
@@ -79,34 +88,34 @@ const Navbar = () => {
                     role="menu"
                   >
                     <div className="py-1" role="none">
-                      <Link
-                        to="/admin-login"
+                      <button
+                        onClick={() => openModal('Admin Login', <Form/>)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         role="menuitem"
                       >
                         Admin
-                      </Link>
-                      <Link
-                        to="/volunteer-login"
+                      </button>
+                      <button
+                        onClick={() => openModal('Volunteer Login', <Form/>)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         role="menuitem"
                       >
                         Volunteer
-                      </Link>
-                      <Link
-                        to="/vendor-login"
+                      </button>
+                      <button
+                        onClick={() => openModal('Vendor Login', <Form/>)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         role="menuitem"
                       >
                         Vendor
-                      </Link>
-                      <Link
-                        to="/buyer-login"
+                      </button>
+                      <button
+                        onClick={() => openModal('Buyer Login', <Form/>)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         role="menuitem"
                       >
                         Buyer
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -127,34 +136,34 @@ const Navbar = () => {
                     role="menu"
                   >
                     <div className="py-1" role="none">
-                      <Link
-                        to="/admin-signup"
+                      <button
+                        onClick={() => openModal('Admin Signup',<Form/>)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         role="menuitem"
                       >
                         Admin
-                      </Link>
-                      <Link
-                        to="/volunteer-signup"
+                      </button>
+                      <button
+                        onClick={() => openModal('Volunteer Signup', <Form/>)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         role="menuitem"
                       >
                         Volunteer
-                      </Link>
-                      <Link
-                        to="/vendor-signup"
+                      </button>
+                      <button
+                        onClick={() => openModal('Vendor Signup', <Form/>)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         role="menuitem"
                       >
                         Vendor
-                      </Link>
-                      <Link
-                        to="/buyer-signup"
+                      </button>
+                      <button
+                        onClick={() => openModal('Buyer Signup', <Form/>)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         role="menuitem"
                       >
                         Buyer
-                      </Link>
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -163,6 +172,9 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      <Modal showModal={modalOpen} setShowModal={setModalOpen} title={modalContent.title}>
+        {modalContent.content}
+      </Modal>
     </nav>
   );
 };

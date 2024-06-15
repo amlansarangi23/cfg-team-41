@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Modal = ({ isVisible, onClose, user }) => {
   const [latitude, setLatitude] = useState(null);
@@ -11,17 +12,34 @@ const Modal = ({ isVisible, onClose, user }) => {
     }
   }, [isVisible]);
 
-  if (!isVisible) return null;
-
   const generateLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         setLatitude(position.coords.latitude);
         setLongitude(position.coords.longitude);
+
+        // Send data to backend
+      sendDataToBackend(user.id, position.coords.latitude, position.coords.longitude);
       });
     } else {
       alert('Geolocation is not supported by this browser.');
     }
+  };
+
+  const sendDataToBackend = (userId, lat, lng) => {
+    axios.post('YOUR_BACKEND_ENDPOINT', {
+      id: userId,
+      latitude: lat,
+      longitude: lng
+    })
+    .then(response => {
+      console.log('Location data sent successfully:', response.data);
+      // Handle success or update UI as needed
+    })
+    .catch(error => {
+      console.error('Error sending location data:', error);
+      // Handle error or show error message
+    });
   };
 
   const handleFormButtonClick = () => {
@@ -30,7 +48,7 @@ const Modal = ({ isVisible, onClose, user }) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+    <div className={`fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center ${isVisible ? '' : 'hidden'}`}>
       <div className="bg-white p-6 rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold">User Information</h2>
