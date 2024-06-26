@@ -1,9 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Form = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform any form validation or submission logic here
+    // If valid, navigate to the /vendor page
+  };
+
   return (
     <div className="container mx-auto">
-      <div className="flex flex-col w-[100%]  bg-white rounded-xl mx-auto shadow-lg overflow-hidden relative">
+      <div className="flex flex-col w-[100%] bg-white rounded-xl mx-auto shadow-lg overflow-hidden relative">
         <div className="w-full flex flex-col items-center justify-center p-12 relative">
           <div
             className="absolute w-[100%] inset-0 bg-no-repeat bg-cover bg-center z-0"
@@ -16,13 +23,12 @@ const Form = () => {
           ></div>
           <h1 className="text-white text-3xl mb-3 z-10">Welcome</h1>
           <div className="z-10">
-            <p className="text-white">
-            </p>
+            <p className="text-white"></p>
           </div>
         </div>
         <div className="w-full py-16 px-12">
           <h2 className="text-3xl mb-4"></h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mt-5">
               <input type="text" placeholder="Email" className="border border-gray-400 py-1 px-2 w-full" />
             </div>
@@ -30,10 +36,14 @@ const Form = () => {
               <input type="password" placeholder="Password" className="border border-gray-400 py-1 px-2 w-full" />
             </div>
             <div className="mt-5">
-              <input type="password" placeholder="Phone number" className="border border-gray-400 py-1 px-2 w-full" />
+              <input type="text" placeholder="Phone number" className="border border-gray-400 py-1 px-2 w-full" />
             </div>
             <div className="mt-5">
-              <button className="w-full bg-blue-500 py-3 text-center text-white">Submit</button>
+              <Link to="/vendor">
+                <button type="submit" className="w-full bg-blue-500 py-3 text-center text-white">
+                  Submit
+                </button>
+              </Link>
             </div>
           </form>
         </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { lazy, Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import VolunteerPage from "./volunteerpage";
@@ -28,22 +28,93 @@ import Linecharts from "./pages/admin/charts/linecharts";
 import Coupon from "./pages/admin/apps/coupon";
 import Stopwatch from "./pages/admin/apps/stopwatch";
 import Toss from "./pages/admin/apps/toss";
-// import NewProduct from "./pages/admin/management/newproduct";
-// import ProductManagement from "./pages/admin/management/productmanagement";
-// import TransactionManagement from "./pages/admin/management/transactionmanagement";
 
 const App = () => {
+  const [beneficiaries, setBeneficiaries] = useState([]);
+
+  useEffect(() => {
+    // Fetch or initialize the beneficiaries list
+    const initialBeneficiaries = [
+      {
+        id: 1,
+        name: 'John Doe',
+        age: 30,
+        gender: 'Male',
+        specialStatus: 'None',
+        documents: 'ID, Birth Certificate',
+        image: 'https://via.placeholder.com/200',
+        goats: [
+          {
+            name: 'Billy',
+            breed: 'Nubian',
+            dateOfBirth: '2021-01-01',
+            vaccination_status: 'Vaccinated',
+            gender: 'Male',
+            image: 'https://via.placeholder.com/200'
+          },
+          { 
+            name: 'Billy',
+            breed: 'Nubian',
+            dateOfBirth: '2021-01-01',
+            vaccination_status: 'Vaccinated',
+            gender: 'Male',
+            image: 'https://via.placeholder.com/200' 
+          }
+        ],
+      },
+      {
+        id: 2,
+        name: 'Jane Smith',
+        age: 25,
+        gender: 'Female',
+        specialStatus: 'None',
+        documents: 'ID, Birth Certificate',
+        image: 'https://via.placeholder.com/200',
+        goats: [
+          {
+            name: 'Billy',
+            breed: 'Nubian',
+            dateOfBirth: '2021-01-01',
+            vaccination_status: 'Vaccinated',
+            gender: 'Male',
+            image: 'https://via.placeholder.com/200'
+          }
+        ],
+      },
+      {
+        id: 3,
+        name: 'Michael Johnson',
+        age: 40,
+        gender: 'Male',
+        specialStatus: 'None',
+        documents: 'ID, Birth Certificate',
+        image: 'https://via.placeholder.com/200',
+        goats: [
+          {
+            name: 'Billy',
+            breed: 'Nubian',
+            dateOfBirth: '2021-01-01',
+            vaccination_status: 'Vaccinated',
+            gender: 'Male',
+            image: 'https://via.placeholder.com/200'
+          }
+        ],
+      },
+    ];
+    setBeneficiaries(initialBeneficiaries);
+  }, []);
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/volunteer" element={<VolunteerPage />} />
         <Route path="/buypage" element={<BuyPage />} />
-        <Route path="/vendor" element={<VendorApp />} />
+        <Route path="/vendor" element={<VendorApp beneficiaries={beneficiaries} />} />
         <Route path="/useradmin" element={<UserAdmin />} />
         <Route path="/admin/dashboard" element={<Dashboard />} />
         {/* Other routes */}
-        <Route path="/beneficiary/:id" element={<BeneficiaryProfile />} />
+        <Route path="/beneficiary/:id" element={<BeneficiaryProfile beneficiaries={beneficiaries} />} />
         <Route path="/buyerhome" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/cart" element={<Cart />} />

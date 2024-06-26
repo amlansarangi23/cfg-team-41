@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Modal from './Modal';
 import Form from './Form';
+import VendorForm from './VendorForm';
+
 
 const Navbar = () => {
   const [loginOpen, setLoginOpen] = useState(false);
@@ -53,8 +55,8 @@ const Navbar = () => {
             </button>
           </div>
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-between">
-            <Link to="/" className="flex-shrink-0 text-white text-xl font-bold">
-              Navbar
+            <Link to="/" className="flex-shrink-0 text-white text-2xl font-bold">
+              GramGaurav
             </Link>
             <div className="hidden sm:block sm:ml-6">
               <div className="flex space-x-4">
@@ -65,12 +67,7 @@ const Navbar = () => {
                 >
                   Home
                 </Link>
-                <Link
-                  to="/link"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Link
-                </Link>
+              
                 <div className="relative">
                   <button
                     onClick={toggleLogin}
@@ -110,7 +107,7 @@ const Navbar = () => {
                         Vendor
                       </button>
                       <button
-                        onClick={() => openModal('Buyer Login', <Form/>)}
+                        onClick={() => openModal('Buyer Login', <VendorForm/>)}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                         role="menuitem"
                       >
